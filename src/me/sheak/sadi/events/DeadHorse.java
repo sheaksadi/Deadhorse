@@ -33,7 +33,7 @@ public class DeadHorse implements Listener {
         }
 
 
-        if (rand.nextInt(1000) != 2) {
+        if (rand.nextInt(100) != 2) {
             return;
         }
         if (entityLocation.getY()<60){
