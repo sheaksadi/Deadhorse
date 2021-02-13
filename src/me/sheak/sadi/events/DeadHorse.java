@@ -26,6 +26,19 @@ public class DeadHorse implements Listener {
         Entity entity = e.getEntity();
         Location entityLocation = entity.getLocation();
 
+        for (Entity entt : list){
+            if (entt instanceof ZombieHorse){
+                return;
+            }
+        }
+
+
+        if (rand.nextInt(1000) != 2) {
+            return;
+        }
+        if (entityLocation.getY()<60){
+            return;
+        }
 
         Biome biome = entityLocation.getBlock().getBiome();
         if (biome != Biome.SWAMP) {
@@ -37,19 +50,8 @@ public class DeadHorse implements Listener {
         if(e.getLocation().getBlock().isLiquid()){
             return;
         }
-        if (entityLocation.getY()<60){
-            return;
-        }
 
-        //if you want to test lower thid number
-        if (rand.nextInt(1000) != 2) {
-            return;
-        }
-        for (Entity entt : list){
-            if (entt instanceof ZombieHorse){
-                return;
-            }
-        }
+
 
 
         WorldServer world =((CraftWorld)entityLocation.getWorld()).getHandle();
